@@ -36,16 +36,16 @@ class Main {
         }
     }
     public static double calculateFromUSD(Scanner input) {
-            System.out.print("What are you converting to? (Yen, Pesos, Euros, Rupees)\n");
-            typeOfCurrency = input.nextLine().toLowerCase();
+        System.out.print("What are you converting to? (Yen, Pesos, Euros, Rupees)\n");
+        typeOfCurrency = input.nextLine().toLowerCase();
 
-            double rate = CURRENCY_RATES.get(typeOfCurrency);
+        double rate = CURRENCY_RATES.get(typeOfCurrency);
 
-            System.out.println("How much are you converting? (USD)");
-            currency = input.nextDouble();
-            input.nextLine();
+        System.out.println("How much are you converting? (USD)");
+        currency = input.nextDouble();
+        input.nextLine();
 
-            return currency * rate;
+        return currency * rate;
     }
     public static double calculateToUSD(Scanner input) {
         System.out.println("What are you converting from? (Yen, Pesos, Euros, Rupees)\n");
