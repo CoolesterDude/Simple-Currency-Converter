@@ -15,11 +15,6 @@ class Main {
     }
 
     public static void main(String[] args) {
-        double yenRate = 157.42;
-        double pesosRate = 18;
-        double eurosRate = .85;
-        double rupeesRate = 89.55;
-
         float currency = 0;
         double result;
         Scanner input = new Scanner(System.in);
