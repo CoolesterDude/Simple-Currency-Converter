@@ -49,7 +49,7 @@ class Main {
     }
     public static double calculateToUSD(Scanner input) {
         System.out.println("What are you converting from? (Yen, Pesos, Euros, Rupees)\n");
-        String typeOfCurrency = input.nextLine().toLowerCase();
+        typeOfCurrency = input.nextLine().toLowerCase();
 
         double rate = CURRENCY_RATES.get(typeOfCurrency);
 
