@@ -35,20 +35,19 @@ class Main {
             }
         }
     }
-    public static double calculateFromUSD(float currency, Scanner input) {
-        double value = 0;
+    public static double calculateFromUSD(double currency, Scanner input) {
         System.out.print("What are you converting to? (Yen, Pesos, Euros, Rupees)\n");
         String typeOfCurrency = input.nextLine().toLowerCase();
+
         double rate = CURRENCY_RATES.get(typeOfCurrency);
+
         System.out.println("How much are you converting? (USD)");
-        currency = input.nextFloat();
-        input.nextLine();  //leaves an extra enter so it's not on the same line
+        currency = input.nextDouble();
+        input.nextLine();
 
-        value = currency * rate;
-
-        return value;
+        return currency * rate;
     }
-    public static double calculateToUSD(float currency, Scanner input) {
+    public static double calculateToUSD(double currency, Scanner input) {
         double value = 0;
         System.out.println("What are you converting from? (Yen, Pesos, Euros, Rupees)\n");
         String typeOfCurrency = input.nextLine().toLowerCase();
