@@ -56,6 +56,7 @@ class Main {
         System.out.println("How much are you converting? (USD)");
         currency = input.nextDouble();
         input.nextLine();
+        
         return currency / rate;
     }
 }
