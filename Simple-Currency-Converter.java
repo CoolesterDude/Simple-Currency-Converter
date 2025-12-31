@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 class Main {
 
-    private static final HashMap<String, Double> CURRENCY_RATES = new HashMap<>();
+    private static final HashMap<String, Double> CURRENCY_RATES = new HashMap<>(); //If I put these variables inside the main method then they can't be updated in separate methods
     static {
         CURRENCY_RATES.put("yen", 157.42);
         CURRENCY_RATES.put("pesos", 18.00);
         CURRENCY_RATES.put("euros", 00.85);
         CURRENCY_RATES.put("rupees", 89.55);
     }
-    private static double currency; //If I put these variables inside the main method then they can't be updated in separate methods
+    private static double currency;
     private static String typeOfCurrency;
 
     public static void main(String[] args) {
@@ -36,26 +36,50 @@ class Main {
         }
     }
     public static double calculateFromUSD(Scanner input) {
-        System.out.print("What are you converting to? (Yen, Pesos, Euros, Rupees)\n");
-        typeOfCurrency = input.nextLine().toLowerCase();
+        double rate;
 
-        double rate = CURRENCY_RATES.get(typeOfCurrency);
+        while (true) { //Validates Currency
+            System.out.print("What are you converting to? (Yen, Pesos, Euros, Rupees)\n");
+            typeOfCurrency = input.nextLine().toLowerCase();
 
-        System.out.println("How much are you converting? (USD)");
-        currency = input.nextDouble();
-        input.nextLine();
-
+            if (CURRENCY_RATES.containsKey(typeOfCurrency)) {
+                rate = CURRENCY_RATES.get(typeOfCurrency); break;
+            } else {
+                System.out.println("Please Enter a Valid Form of Currency.");
+            }
+        }
+        while (true) { //Validates Number
+            System.out.println("How much are you converting? (USD)");
+            if (input.hasNextDouble()) {
+                currency = input.nextDouble();
+                input.nextLine(); break;
+            } else {
+                input.nextLine();
+                System.out.println("Please Enter a Valid Number");
+            }
+        }
         return currency * rate;
     }
     public static double calculateToUSD(Scanner input) {
-        System.out.println("What are you converting from? (Yen, Pesos, Euros, Rupees)\n");
-        typeOfCurrency = input.nextLine().toLowerCase();
-
-        double rate = CURRENCY_RATES.get(typeOfCurrency);
-
-        System.out.println("How much are you converting? (USD)");
-        currency = input.nextDouble();
-        input.nextLine();
+        double rate;
+        while (true) { //Validates Currency
+            System.out.println("What are you converting from? (Yen, Pesos, Euros, Rupees)");
+            typeOfCurrency = input.nextLine().toLowerCase();
+            if (CURRENCY_RATES.containsKey(typeOfCurrency)) {
+                rate = CURRENCY_RATES.get(typeOfCurrency); break;
+            } else {
+                System.out.println("Please Enter a Valid Form of Currency");
+                }
+        }
+        while (true) { //Validates Number
+            System.out.println("How much are you converting? (USD)");
+            if (input.hasNextDouble()) {
+                currency = input.nextDouble();
+                input.nextLine(); break;
+            } else {
+                System.out.println("Please Enter a Valid Number.");
+            }
+        }
         return currency / rate;
     }
 }
