@@ -37,7 +37,6 @@ class Main {
     }
     public static double calculateFromUSD(Scanner input) {
         double rate;
-
         while (true) { //Validates Currency
             System.out.print("What are you converting to? (Yen, Pesos, Euros, Rupees)\n");
             typeOfCurrency = input.nextLine().toLowerCase();
