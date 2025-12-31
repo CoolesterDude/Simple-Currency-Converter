@@ -8,12 +8,12 @@ class Main {
 
     private static final HashMap<String, Double> CURRENCY_RATES = new HashMap<>();
     static {
-        CURRENCY_RATES.put("yen", 157.42);  //If I put these variables inside the main method then they can't be updated in separate methods
+        CURRENCY_RATES.put("yen", 157.42);
         CURRENCY_RATES.put("pesos", 18.00);
         CURRENCY_RATES.put("euros", 00.85);
         CURRENCY_RATES.put("rupees", 89.55);
     }
-    private static double currency;
+    private static double currency; //If I put these variables inside the main method then they can't be updated in separate methods
     private static String typeOfCurrency;
 
     public static void main(String[] args) {
@@ -56,7 +56,6 @@ class Main {
         System.out.println("How much are you converting? (USD)");
         currency = input.nextDouble();
         input.nextLine();
-        
         return currency / rate;
     }
 }
