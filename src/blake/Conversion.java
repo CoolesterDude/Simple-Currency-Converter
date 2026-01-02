@@ -2,7 +2,9 @@ package blake;
 
 import java.util.Scanner;
 
-import static blake.Main.*;
+import static blake.Main.CURRENCY_RATES;
+import static blake.Main.typeOfCurrency;
+import static blake.Main.currency;
 
 public class Conversion {
     public static double calculateFromUSD(Scanner input) {

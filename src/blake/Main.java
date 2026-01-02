@@ -13,7 +13,7 @@ public class Main {
     static {
         CURRENCY_RATES.put("yen", 157.42);
         CURRENCY_RATES.put("pesos", 18.00);
-        CURRENCY_RATES.put("euros", 00.85);
+        CURRENCY_RATES.put("euros", 0.85);
         CURRENCY_RATES.put("rupees", 89.55);
     }
     public static double currency;
@@ -29,11 +29,11 @@ public class Main {
 
             if (order.equals("from")) {
                 result = calculateFromUSD(input);
-                System.out.println("$" + String.format("%.2f", currency) + " USD is " + String.format("%.2f", result) + " in " + typeOfCurrency);
+                System.out.printf("$%.2f USD is %.2f in %s",currency, result, typeOfCurrency);
                 break;
             } else if (order.equals("to")) {
                 result = calculateToUSD(input);
-                System.out.println(String.format("%.2f", currency) + " " + typeOfCurrency + " is " + String.format("%.2f", result) + " USD");
+                System.out.printf("%.2f %s is $%.2f in USD", currency, typeOfCurrency, result);
                 break;
             }
         }
